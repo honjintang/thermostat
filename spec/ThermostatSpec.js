@@ -30,4 +30,8 @@ describe('Thermostat', function() {
     thermostat.powerSavingOff()
     expect(function(){thermostat.increase(13);}).toThrowError("Power saving mode off: maximum temperature is 32 degrees");
   });
+  it('has a reset function to revert to default temperature', function(){
+    thermostat.reset()
+    expect(thermostat.temperature).toEqual(20);
+  });
 });
