@@ -22,6 +22,14 @@
           <button id='power-saving-off'>PSM off</button>
       </p>
     </section>
+    <section>
+      <h1>Current temperature: <span id='current-temperature'></span></h1>
+      <select id="current-city">
+        <option value="london">London</option>
+        <option value="newyork">New York</option>
+        <option value="paris">Paris</option>
+        <option value="tokyo">Tokyo</option>
+    </section>
     <script src='src/Thermostat.js'></script>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script>
@@ -53,11 +61,25 @@
         thermostat.powerSavingOff();
         $('#power-saving-status').text('off');
       });
+      displayWeather('London');
+      $('#current-city').change(function(){
+        var city = $('#current-city').val();
+        displayWeather(city);
+      });
+
       function updateTemperature(){
         $('#temperature').text(thermostat.temperature);
         $('#temperature').attr('class', thermostat.usage());
       };
-});
+      function displayWeather(city) {
+        var url = 'http://api.openweathermap.org/data/2.5/weather?q=' + city;
+        var token = '&appid=a3d9eb01d4de82b9b8d0849ef604dbed&units=metric';
+        var units = '&units=metric';
+        $.get(url + token + units, function(data) {
+          $('#current-temperature').text(data.main.temp);
+        });
+      };
+    });
     </script>
   </body>
 </html>
