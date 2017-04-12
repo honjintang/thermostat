@@ -59,4 +59,12 @@ describe('Thermostat', function() {
     };
     expect(thermostat.usage()).toEqual('high-usage');
   });
+  it('resets temperature if power saving is switched on and temperature is higher than allowed', function(){
+    thermostat.powerSavingOff();
+    for(var i = 0; i < 8; i++){
+      thermostat.increase();
+    };
+    thermostat.powerSavingOn();
+    expect(thermostat.temperature).toEqual(thermostat.DEFAULT_TEMPERATURE);
+  });
 });

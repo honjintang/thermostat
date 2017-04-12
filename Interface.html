@@ -47,6 +47,7 @@
       $('#power-saving-on').click(function(){
         thermostat.powerSavingOn();
         $('#power-saving-status').text('on');
+        updateTemperature();
       });
       $('#power-saving-off').click(function(){
         thermostat.powerSavingOff();
