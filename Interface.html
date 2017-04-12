@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<link rel='stylesheet' type='text/css' href='public/main.css'
+<html>
+  <head>
+    <h1> Thermostat </h1>
+  </head>
+  <body>
+    <section>
+      <h1 id='temperature'></h1>
+      <h1 id='use'></h1>
+      <p>
+        <button id='increase'> Increase </button>
+        <button id='decrease'> Decrease </button>
+        <button id='reset'> Reset </button>
+        <button id='usage'> Usage </button>
+      </p>
+      <p>
+        power saving mode is <span id='power-saving-status'>on</span>
+      </p>
+      <p>
+          <button id='power-saving-on'>PSM on</button>
+          <button id='power-saving-off'>PSM off</button>
+      </p>
+    </section>
+    <script src='src/Thermostat.js'></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script>
+    $( document ).ready(function() {
+      var thermostat = new Thermostat();
+      $('#temperature').text(thermostat.temperature);
+      $('#increase').on('click', function(){
+        thermostat.increase();
+        updateTemperature();
+      });
+      $('#decrease').on('click', function(){
+        thermostat.decrease();
+        updateTemperature();
+      });
+      $('#reset').on('click',function(){
+        thermostat.reset();
+        updateTemperature();
+      });
+      $('#usage').on('click', function(){
+        thermostat.usage();
+        $('#use').text(thermostat.usage());
+      });
+      $('#power-saving-on').click(function(){
+        thermostat.powerSavingOn();
+        $('#power-saving-status').text('on');
+      });
+      $('#power-saving-off').click(function(){
+        thermostat.powerSavingOff();
+        $('#power-saving-status').text('off');
+      });
+      function updateTemperature(){
+        $('#temperature').text(thermostat.temperature);
+        $('#temperature').attr('class', thermostat.usage());
+      };
+});
+    </script>
+  </body>
+</html>

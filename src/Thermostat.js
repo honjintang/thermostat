@@ -6,20 +6,20 @@ function Thermostat(){
   this.powerSaving = true;
 }
 
-Thermostat.prototype.increase = function(amount){
-  if (this.powerSaving === true && (this.temperature + amount > 25)) {
+Thermostat.prototype.increase = function(){
+  if (this.powerSaving === true && (this.temperature + 1 > 25)) {
     throw new Error("Power saving mode: maximum temperature is 25 degrees");
   }
-  else if (this.powerSaving === false && (this.temperature + amount > 32)) {
+  else if (this.powerSaving === false && (this.temperature + 1 > 32)) {
     throw new Error("Power saving mode off: maximum temperature is 32 degrees");
   }
-  return (this.temperature = this.temperature + amount);
+  return (this.temperature += 1);
 };
-Thermostat.prototype.decrease = function(amount){
-  if ((this.temperature - amount) <= 10) {
+Thermostat.prototype.decrease = function(){
+  if ((this.temperature - 1) < 10) {
     throw new Error("Minimum temperature is 10 degrees");
   }
-  return (this.temperature = this.temperature - amount);
+  return (this.temperature -= 1);
 };
 Thermostat.prototype.powerSavingOff = function(){
   this.powerSaving = false;

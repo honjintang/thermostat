@@ -1,0 +1,58 @@
+body {
+  animation: colorchange 20s infinite;
+  -webkit-animation: colorchange 20s infinite;
+}
+
+@keyframes colorchange
+{
+  0% {background: #536878;}
+  25% {background: #828081;}
+  50% {background: #984B43;}
+  75% {background: #EAC67A;}
+  100% {background: #0000;}
+}
+  @-webkit-keyframes colorchange
+  {
+    0% {background: #536878;}
+    25% {background: #828081;}
+    50% {background: #984B43;}
+    75% {background: #EAC67A;}
+    100% {background: #0000;}
+  }
+
+  h1 {
+    font-family: monaco, Consolas, "Lucida Console", monospace;
+    font-size: 24px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    line-height: 26.4px;
+}
+h3 {
+    font-family: monaco, Consolas, "Lucida Console", monospace;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    line-height: 15.4px;
+}
+p {
+    font-family: monaco, Consolas, "Lucida Console", monospace;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.low-usage {
+  color: #57BC90;
+}
+
+.medium-usage {
+  color: black;
+}
+
+.high-usage {
+  color: #CF6766;
+}
