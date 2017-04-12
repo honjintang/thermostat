@@ -9,4 +9,8 @@ describe('Thermostat', function() {
   it('starts at 20 degrees', function() {
     expect(thermostat.temperature).toEqual(20);
   });
+
+  it('has an adjustable temperature', function() {
+    expect(thermostat.increase(5)).toEqual(25);
+  });
 });
