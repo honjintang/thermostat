@@ -10,7 +10,15 @@ describe('Thermostat', function() {
     expect(thermostat.temperature).toEqual(20);
   });
 
-  it('has an adjustable temperature', function() {
+  it('can increase temperature', function() {
     expect(thermostat.increase(5)).toEqual(25);
+  });
+
+  it('can decrease temperature', function() {
+    expect(thermostat.decrease(5)).toEqual(15);
+  });
+
+  it('has a minimum temperature of 10', function() {
+    expect(function(){thermostat.decrease(11);}).toThrowError("Minimum temperature is 10 degrees");
   });
 });
