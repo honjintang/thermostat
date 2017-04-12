@@ -7,7 +7,7 @@ describe('Thermostat', function() {
   });
 
   it('starts at 20 degrees', function() {
-    expect(thermostat.temperature).toEqual(20);
+    expect(thermostat.temperature).toEqual(thermostat.DEFAULT_TEMPERATURE);
   });
 
   it('can increase temperature', function() {
@@ -32,7 +32,7 @@ describe('Thermostat', function() {
   });
   it('has a reset function to revert to default temperature', function(){
     thermostat.reset()
-    expect(thermostat.temperature).toEqual(20);
+    expect(thermostat.temperature).toEqual(thermostat.DEFAULT_TEMPERATURE);
   });
   it('returns current energy usage as low-usage', function(){
     thermostat.decrease(3);

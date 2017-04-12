@@ -1,7 +1,8 @@
 'use strict';
 
 function Thermostat(){
-  this.temperature = 20;
+  this.DEFAULT_TEMPERATURE = 20;
+  this.temperature = this.DEFAULT_TEMPERATURE;
   this.powerSaving = true;
 }
 
@@ -27,7 +28,7 @@ Thermostat.prototype.powerSavingOn = function(){
   this.powerSaving = true;
 };
 Thermostat.prototype.reset = function() {
-  this.temperature = 20;
+  this.temperature = this.DEFAULT_TEMPERATURE;
 };
 
 Thermostat.prototype.usage = function() {
