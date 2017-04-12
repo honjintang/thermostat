@@ -34,4 +34,17 @@ describe('Thermostat', function() {
     thermostat.reset()
     expect(thermostat.temperature).toEqual(20);
   });
+  it('returns current energy usage as low-usage', function(){
+    thermostat.decrease(3);
+    expect(thermostat.usage()).toEqual('low-usage');
+  });
+  it('returns current energy usage as medium-usage', function(){
+    thermostat.increase(5);
+    expect(thermostat.usage()).toEqual('medium-usage');
+  });
+  it('returns current energy usage as high-usage', function(){
+    thermostat.powerSavingOff();
+    thermostat.increase(6);
+    expect(thermostat.usage()).toEqual('high-usage');
+  });
 });
