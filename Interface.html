@@ -6,6 +6,7 @@
   </head>
   <body>
     <section>
+      <h1 id='time'></h1>
       <h1 id='temperature'></h1>
       <h1 id='use'></h1>
       <p>
@@ -36,6 +37,9 @@
     $( document ).ready(function() {
       var thermostat = new Thermostat();
       $('#temperature').text(thermostat.temperature);
+      $.get("http://localhost:4567/time.json", function(data) {
+        $('#time').text(data);
+      });
       $('#increase').on('click', function(){
         thermostat.increase();
         updateTemperature();
@@ -79,6 +83,7 @@
           $('#current-temperature').text(data.main.temp);
         });
       };
+
     });
     </script>
   </body>
